@@ -1,0 +1,44 @@
+.content{
+    height: calc(100vh - var(--load-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pilotka';
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.4em;
+    background-image: url(../../../Assets/BG1.png);
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .years{
+        position: relative;
+        top: 170px;
+        font-size: 87px;
+        line-height: 110px;
+    }
+    .abbreviation{
+        position: relative;
+        top: 190px;
+        font-size: 250px;
+        line-height: 315px;
+    }
+    .play{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        gap: 10px;
+        margin-top: 150px;
+        
+        img{
+            width: 66px;
+            height: 66px;
+        }
+    }
+}
