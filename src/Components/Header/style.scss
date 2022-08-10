@@ -1,9 +1,12 @@
 .header{
     height: 127px;
-    padding-left: 52px;
-    padding-right: 69px;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    min-width: 100%;
+    .header_items{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 52px;
+    }
 }
