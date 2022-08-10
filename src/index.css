@@ -20,6 +20,10 @@ body, html{
   font-family: 'Pilotka';
   src: url(./Assets/Pilotka.ttf);
 }
+@font-face {
+  font-family: 'Raleway', sans-serif;
+  src: url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);
+}
 :root{
   --load-height: 111px;
 }
