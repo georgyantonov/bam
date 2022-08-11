@@ -1,0 +1,21 @@
+.about_bam{
+    height: 100%;
+    background-image: url(../../../Assets/bg2.png);
+    max-width: 1300px;
+    background-position: center -450px;
+    margin: 0 auto;
+    [class*='header']{
+        font-family: 'Pilotka';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 96px;
+        line-height: 90%;
+        text-transform: uppercase;
+        color: #0495CE;
+        padding: 130px 450px 0 55px;
+        text-align: center;
+        span{
+            padding-left: 240px;
+        }
+    }
+} 

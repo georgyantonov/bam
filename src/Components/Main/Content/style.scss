@@ -41,4 +41,9 @@
             height: 66px;
         }
     }
+    .mouse{
+        position: absolute;
+        left: 60px;
+        bottom: calc(var(--load-height) + 22px);
+    }
 }

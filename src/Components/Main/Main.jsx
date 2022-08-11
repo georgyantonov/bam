@@ -1,4 +1,5 @@
 import React from 'react'
+import About from './About/About'
 import Content from './Content/Content'
 import Load from './Load/Load'
 import './style.scss'
@@ -10,6 +11,7 @@ export default function Main() {
             <Content></Content>
             <Load></Load>
         </div>
+        <About></About>
     </main>
   )
 }
