@@ -43,7 +43,7 @@ export default function Nav() {
                 return(
                     
                     <li  key={id}>
-                        <a className='nav_item' id={url} >
+                        <a className='nav_item'>
                            { name } 
                         </a>
                     </li>

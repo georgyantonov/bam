@@ -1,17 +1,12 @@
 .navbarmenu{ 
 
     ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-    color: #FFFFFF;
-    }
-    .nav_item{
-        margin-right: 32px;
+        min-width: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        li:not(:last-child){
+            margin-right: 32px;
+        }
     }
 }

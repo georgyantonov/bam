@@ -2,11 +2,14 @@
     height: 127px;
     position: absolute;
     display: block;
+    
     min-width: 100%;
+
     .header_items{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 52px;
+        padding: 39px 52px;
+
     }
 }

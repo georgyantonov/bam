@@ -1,4 +1,12 @@
 .load_history{
     height: var(--load-height);
     background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+        img{
+            margin-right: 14px;
+        }
+    }
 }

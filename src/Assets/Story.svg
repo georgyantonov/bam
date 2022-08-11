@@ -1,0 +1,6 @@
+<svg width="19" height="27" viewBox="0 0 19 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 20L3 20C1.89543 20 1 20.8954 1 22L1 24C1 25.1046 1.89543 26 3 26L19 26" stroke="white" stroke-width="2"/>
+<path d="M18 21L18 1L3 1C1.89543 1 1 1.89543 1 3L1 23" stroke="white" stroke-width="2"/>
+<line x1="18" y1="20" x2="18" y2="26" stroke="white" stroke-width="2"/>
+<rect x="6" y="6" width="7" height="3" fill="white"/>
+</svg>
