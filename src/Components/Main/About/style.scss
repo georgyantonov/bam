@@ -1,7 +1,7 @@
 .about_bam{
     height: 100%;
     background-image: url(../../../Assets/bg2.png);
-    max-width: 1300px;
+    max-width: 1440px;
     background-position: center -450px;
     margin: 0 auto;
     [class*='header']{
@@ -16,6 +16,42 @@
         text-align: center;
         span{
             padding-left: 240px;
+        }
+    }
+    .description{
+        font-size: 42px;
+        line-height: 140%;
+        text-transform: uppercase;
+        color: #1F1F1F;
+        margin-top: 20px;
+        padding-left: 285px;
+        z-index: 2;
+        position: relative;
+    }
+    .bam_info{
+        display: flex;
+        flex-direction: row;
+        margin-top: -30px;
+        justify-content: space-between;
+        padding: 0 60px;
+        .wedding{
+            position: relative;
+            top: 159px;
+
+        }
+        .employees{
+            overflow:visible;
+            .bg{
+                position: relative;
+                top: -100%;
+                right: -10%;
+                width: 100%;
+                height: 100%;
+                background-image: url('../../../Assets/embg.png');
+                opacity: 0.77;
+                background-position: 100% 0;
+                background-repeat: no-repeat;
+            }
         }
     }
 } 
