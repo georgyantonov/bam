@@ -1,0 +1,11 @@
+.share{
+    min-height: 1513px;
+    background-color: #164385;
+    [class*='_container']{
+        max-width: 1440px;
+        margin: 0 auto;
+        min-height: inherit;
+        background-image: url('../../../Assets/bg3.png');
+        background-position: 0 -271px;
+    }
+}
