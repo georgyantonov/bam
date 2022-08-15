@@ -118,8 +118,75 @@
 
 }
 .input[class*='with_icon']{
-    padding-left: 45px;
+    padding-left: 45px !important;
 }
 .from::-webkit-calendar-picker-indicator{
-    display: none;
+    content: "";
+    height: 23px;
+    left: 15px;
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    width: 22px;
+    background: url(http://localhost:3000/static/media/map.05fcac1….svg);
+}
+.dates{
+    gap: 20px !important;
+    input{
+        font-family: 'Raleway', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        width: 200px;
+        color: #989797;
+    }
+    input[type="date"] {
+        // position: relative
+      }
+      
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        color: transparent;
+        background: transparent
+      }
+      
+      input[type="date"]::-webkit-inner-spin-button,
+      input[type="date"]::-webkit-clear-button {
+        z-index: -10
+      }
+      
+      input[type="date"]::-webkit-input-placeholder {
+        width: 100%;
+        height: 100%;
+        z-index: 99
+      }
+      
+      input[type="date"]:placeholder {
+        z-index: 99
+      }
+        input[type="date"]:not(.has-value):before{
+          content: attr(placeholder);
+          width: 100%;
+        }
+      
+        input[type="date"]{
+          padding: 12px 20px;
+        }
+    input::-webkit-datetime-edit-text{
+        opacity: 0;
+        width: 5px;
+    }
+}
+.date_from::before, .date_to::before{
+    background: url('../../../Assets/calendar.svg') !important;
+}
+label[for='to']{
+    opacity: 0;
 }

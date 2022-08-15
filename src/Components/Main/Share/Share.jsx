@@ -3,6 +3,10 @@ import './style.scss'
 import vk from '../../../Assets/vk.svg'
 
 export default function Share() {
+  function dateCheck(e){
+    console.log('Получен фокус на поле ввода');
+    e.target.className = e.target.value !== '' ? 'with_icon from input  has-value' : ''
+  }
   return (
     <div className='share'>
         <div className="share_container">
@@ -50,14 +54,23 @@ export default function Share() {
                 </span>
               </div>
               <div className="col">
-              <div className="row">
+              <div className="row dates">
                 <div className="col">
                   <label htmlFor="from">
                     Годы работы
                   </label>
-                  <input type="date" className="with_icon from input" name='from' min='1972-04-05' max='1984-10-27' placeholder="05 апреля 1972 г."/>
+                  <span className="icon date_from">
+                    <input type="date" className="with_icon from input" name='from' min='1972-04-05' max='1984-10-27' placeholder='05 апреля 1972' onChange={(e) => dateCheck(e)}/>
+                  </span>
                 </div>
-                <div className="col"></div>
+                <div className="col">
+                <label htmlFor="to">
+                  0
+                  </label>
+                  <span className="icon date_to">
+                    <input type="date" className="with_icon from input" name='to' min='1972-04-05' max='1984-10-27' placeholder="27 октября 1984" onChange={(e) => dateCheck(e)} />
+                  </span>
+                </div>
               </div>
               </div>
             </div>
