@@ -80,13 +80,43 @@
                 
     }
     }
-    .story{
+    .high{
         box-sizing: border-box;
         padding: 12px 15px;
         min-height: 201px;
         width: 100%;
         resize: none;
         margin-bottom: 32px;
+    }
+    .dropzone{
+
+        input[type="file"]{
+            margin-top: 30px;
+            background: transparent;
+            border: 1px dashed rgba(255, 255, 255, 0.6);
+
+        }
+        .upload{
+            height: inherit;
+            input::-webkit-file-upload-button{
+                content: attr();
+                align-self: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 25px;
+                gap: 10px;
+                width: 204px !important;
+                height: 44px !important;
+                background-color: transparent   ;
+                border: 1px solid #FFFFFF;
+                border-radius: 4px;
+                color: white;
+    
+            }
+        }
+        
     }
     }
 
@@ -178,6 +208,15 @@
     input::-webkit-datetime-edit-text{
         opacity: 0;
         width: 5px;
+    }
+    .date_from::after{
+        background: #fff;
+        content: "";
+        height: 1px;
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        width: 10px;
     }
 }
 .date_from::before, .date_to::before{

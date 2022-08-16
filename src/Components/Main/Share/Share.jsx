@@ -68,7 +68,7 @@ export default function Share() {
             <label htmlFor="story">
               Ваша история*
             </label>
-            <textarea name="story"  className='input story' placeholder='Расскажите о себе или о своих родственниках, которые принимали участие в строительстве магистрали'></textarea>
+            <textarea name="story"  className='input high' placeholder='Расскажите о себе или о своих родственниках, которые принимали участие в строительстве магистрали'></textarea>
             <div className="row">
               <div className="col">
               <label htmlFor="place">
@@ -98,8 +98,18 @@ export default function Share() {
                   </span>
                 </div>
               </div>
+              
               </div>
             </div>
+            <div className='dropzone'>
+                <label htmlFor="drop">
+                  Добавьте фото
+                  <div className='upload'>
+                  <input type="file" className='high input' multiple name='drop' />
+                </div>
+                </label>
+                
+              </div>
           </form>
         </div>
     </div>
