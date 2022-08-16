@@ -5,8 +5,34 @@ import vk from '../../../Assets/vk.svg'
 export default function Share() {
   function dateCheck(e){
     console.log('Получен фокус на поле ввода');
-    e.target.className = e.target.value !== '' ? 'with_icon from input  has-value' : ''
-  }
+    e.stopPropagation()
+    e.target.className = e.target.value !== '' ? 'with_icon input ' : 'with_icon input'
+  };
+  function numToMonth(e){
+    e.stopPropagation()
+    console.log(1)
+    let months = [
+      'января',
+      'февраля',
+      'марта',
+      'апреля',
+      'мая',
+      'июня',
+      'июля',
+      'августа',
+      'сентября',
+      'октября',
+      'ноября',
+      'декабря',
+    ];
+    // console.log(e)
+    let nums = e.target.value.split('-')
+    console.log(months[nums[1]-1])
+    let days = nums[2]
+    let years = nums[0]
+    e.target.setAttribute('placeholder', String(days + " " + months[nums[1]-1] +' '  + years ))
+  };
+
   return (
     <div className='share'>
         <div className="share_container">
@@ -59,8 +85,8 @@ export default function Share() {
                   <label htmlFor="from">
                     Годы работы
                   </label>
-                  <span className="icon date_from">
-                    <input type="date" className="with_icon from input" name='from' min='1972-04-05' max='1984-10-27' placeholder='05 апреля 1972' onChange={(e) => dateCheck(e)}/>
+                  <span className="icon date_from" >
+                    <input type="date" className="with_icon from input" name='from' min='1972-04-05' max='1984-10-27' placeholder='05 апреля 1972' onChange={(e) => numToMonth(e)} onChangeCapture={(e) => dateCheck(e)} />
                   </span>
                 </div>
                 <div className="col">
@@ -68,7 +94,7 @@ export default function Share() {
                   0
                   </label>
                   <span className="icon date_to">
-                    <input type="date" className="with_icon from input" name='to' min='1972-04-05' max='1984-10-27' placeholder="27 октября 1984" onChange={(e) => dateCheck(e)} />
+                    <input type="date" className="with_icon to input" name='to' min='1972-04-05' max='1984-10-27' placeholder="27 октября 1984" onChange={(e) => numToMonth(e)} onChangeCapture={(e) => dateCheck(e)} />
                   </span>
                 </div>
               </div>
