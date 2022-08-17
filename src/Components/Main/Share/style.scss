@@ -130,10 +130,47 @@
                 display: flex;
                 width: 120px
             }
-        }
-        
-        
+        }    
     }
+        .uploaded {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            span{
+                box-sizing: border-box !important;
+                display: flex;
+                align-items: center;
+                padding: 7.5px 16px;
+                gap: 10px;
+                margin-bottom: 10px;
+                width: auto;
+                height: 34px;
+                background: #1E1E1E;
+                border-radius: 5px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                span{
+                    padding: 0 0;
+                    margin-bottom: 0;
+                    height: 14px;
+                    width: 14px;
+
+                }
+                span:before, span:after{
+                    content: ""; 
+                    position: absolute; 
+                    width: 14px; 
+                    height: 2px; 
+                    background: white;
+                }
+                span:before{
+                    transform: rotate(45deg)
+                }
+                span:after{
+                    transform: rotate(-45deg)
+                }
+        }}
     }
 
     label{

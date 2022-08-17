@@ -9,6 +9,7 @@ export default function Share() {
     e.stopPropagation()
     e.target.className = e.target.value !== '' ? 'with_icon input ' : 'with_icon input'
   };
+
   function numToMonth(e){
     e.stopPropagation()
     console.log(1)
@@ -26,13 +27,35 @@ export default function Share() {
       'ноября',
       'декабря',
     ];
-    // console.log(e)
     let nums = e.target.value.split('-')
-    console.log(months[nums[1]-1])
     let days = nums[2]
     let years = nums[0]
     e.target.setAttribute('placeholder', String(days + " " + months[nums[1]-1] +' '  + years ))
   };
+
+function files(e){
+
+  var inputFile = document.getElementById('drop').files;
+  const values = Object.entries(inputFile)
+  let fileName = null
+  let uploaded = document.querySelector('.uploaded')
+  
+  values.forEach(entry => {
+
+    let span = document.createElement('span')
+    let span1 = document.createElement('span')
+    const file = entry[1]
+    const fileN = file.name
+    let spanCreated = uploaded.appendChild(span1)
+    spanCreated.innerText = fileN
+    let spanSel = document.querySelectorAll('.uploaded *')[0]
+    console.log(spanSel)
+    let spanClose = spanSel.appendChild(span)
+  
+  })
+  
+}
+
 
   return (
     <div className='share'>
@@ -103,6 +126,9 @@ export default function Share() {
               </div>
             </div>
             <label htmlFor="dropzone">Добавьте фото</label>
+            <div className="uploaded">
+
+            </div>
             <div className='dropzone high'>
               <label htmlFor="drop">
               <div className='files'>
@@ -115,9 +141,8 @@ export default function Share() {
                     <img className="input__file-icon" src={upload} alt="Выбрать файл" />
                   </div>
                   <div className="input__file-button-text">Выберите файл</div>
-                  
                 </div>
-                <input type="file" className='high input' multiple name='drop' id='drop'></input>
+                <input type="file" className='high input' multiple name='files[]' id='drop' onChange={(e) => files(e)}></input>
               </label>
                 
             </div>
