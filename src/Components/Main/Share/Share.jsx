@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.scss'
 import vk from '../../../Assets/vk.svg'
+import upload from '../../../Assets/upload.svg'
 
 export default function Share() {
   function dateCheck(e){
@@ -101,15 +102,25 @@ export default function Share() {
               
               </div>
             </div>
-            <div className='dropzone'>
-                <label htmlFor="drop">
-                  Добавьте фото
-                  <div className='upload'>
-                  <input type="file" className='high input' multiple name='drop' />
-                </div>
-                </label>
-                
+            <label htmlFor="dropzone">Добавьте фото</label>
+            <div className='dropzone high'>
+              <label htmlFor="drop">
+              <div className='files'>
+                <p>
+                  Перетащите файлы в эту область
+                </p>
               </div>
+                <div className="input_button">
+                  <div className="input__file-icon-wrapper">
+                    <img className="input__file-icon" src={upload} alt="Выбрать файл" />
+                  </div>
+                  <div className="input__file-button-text">Выберите файл</div>
+                  
+                </div>
+                <input type="file" className='high input' multiple name='drop' id='drop'></input>
+              </label>
+                
+            </div>
           </form>
         </div>
     </div>
