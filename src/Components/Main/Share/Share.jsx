@@ -36,24 +36,34 @@ export default function Share() {
 function files(e){
 
   var inputFile = document.getElementById('drop').files;
+  console.log(inputFile)
   const values = Object.entries(inputFile)
+  console.log(values)
   let fileName = null
   let uploaded = document.querySelector('.uploaded')
-  
-  values.forEach(entry => {
+  let span = document.createElement('span')
 
-    let span = document.createElement('span')
-    let span1 = document.createElement('span')
+  values.forEach(entry => {
+  
+
     const file = entry[1]
-    const fileN = file.name
+    console.log(file)
+    let span1 = document.createElement('span')
     let spanCreated = uploaded.appendChild(span1)
-    spanCreated.innerText = fileN
-    let spanSel = document.querySelectorAll('.uploaded *')[0]
-    console.log(spanSel)
-    let spanClose = spanSel.appendChild(span)
-  
+    spanCreated.innerText = file.name.length > 10 ? file.name.slice(0, 10) : file.name 
+    spanCreated.classList.add("file")
+    console.log(spanCreated)
+    let spanSel = document.getElementsByClassName('file')
+    for (let i = 0 ; i < spanSel.length; i++){
+      console.log(i)
+      let s = spanSel[i]
+      console.log(s)
+      s.appendChild(span)
+    }
   })
-  
+
+
+  // let spanClose = spanSel.appendChild(span)
 }
 
 
