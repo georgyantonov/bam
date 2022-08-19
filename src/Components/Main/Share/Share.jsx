@@ -5,14 +5,11 @@ import upload from '../../../Assets/upload.svg'
 
 export default function Share() {
   function dateCheck(e){
-    console.log('Получен фокус на поле ввода');
-    e.stopPropagation()
+
     e.target.className = e.target.value !== '' ? 'with_icon input ' : 'with_icon input'
   };
 
   function numToMonth(e){
-    e.stopPropagation()
-    console.log(1)
     let months = [
       'января',
       'февраля',
@@ -39,7 +36,6 @@ function files(e){
   console.log(inputFile)
   const values = Object.entries(inputFile)
   console.log(values)
-  let fileName = null
   let uploaded = document.querySelector('.uploaded')
   let span = document.createElement('span')
 
@@ -52,17 +48,7 @@ function files(e){
     spanCreated.innerText = file.name.length > 10 ? file.name.slice(0, 10) : file.name 
     spanCreated.classList.add("file")
     console.log(spanCreated)
-    let spanSel = document.getElementsByClassName('file')
-    console.log(spanSel)
-    // spanSel.appendChild(span)
-    for (let i = 0 ; i < spanSel.length; i++){
-      console.log(spanSel.length)
-      console.log(i)
-      let s = spanSel[i]
-      console.log(s)
-      s.appendChild(span)
-    }
-  
+    spanCreated.appendChild(span)
   })
 }
 
