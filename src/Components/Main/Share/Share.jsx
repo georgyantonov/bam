@@ -44,7 +44,6 @@ function files(e){
   let span = document.createElement('span')
 
   values.forEach(entry => {
-  
 
     const file = entry[1]
     console.log(file)
@@ -54,16 +53,17 @@ function files(e){
     spanCreated.classList.add("file")
     console.log(spanCreated)
     let spanSel = document.getElementsByClassName('file')
+    console.log(spanSel)
+    // spanSel.appendChild(span)
     for (let i = 0 ; i < spanSel.length; i++){
+      console.log(spanSel.length)
       console.log(i)
       let s = spanSel[i]
       console.log(s)
       s.appendChild(span)
     }
+  
   })
-
-
-  // let spanClose = spanSel.appendChild(span)
 }
 
 
