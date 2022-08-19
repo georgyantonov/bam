@@ -31,7 +31,7 @@ export default function Share() {
   };
 
 function files(e){
-
+  console.log(e)
   var inputFile = document.getElementById('drop').files;
   console.log(inputFile)
   const values = Object.entries(inputFile)
