@@ -4,6 +4,7 @@ import Content from './Content/Content'
 import Load from './Load/Load'
 import './style.scss'
 import Share from './Share/Share'
+import Partners from './Partners/Partners'
 export default function Main() {
   return (
     <main>
@@ -13,6 +14,7 @@ export default function Main() {
         </div>
         <About></About>
         <Share></Share>
+        <Partners></Partners>
     </main>
   )
 }

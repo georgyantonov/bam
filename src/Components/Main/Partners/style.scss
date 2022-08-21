@@ -1,0 +1,38 @@
+.partners{
+    background-image: url('../../../Assets/bg4.png');
+    min-height: 544px;
+    background-position: center 40px;
+    background-repeat: no-repeat;
+    padding-top: 96px;
+    .partners_header{
+        text-align: center;
+        color: black;
+        font-family: 'Pilotka';
+        font-size: 48px;
+    }
+    .partners_cards{
+        height: 273px;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 99px;
+        .card{
+            display: flex;
+            flex-direction: column;
+            height: 273px;
+            width: 444px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .card:not(:last-child)::after{
+            content: '';
+            width: 273px;
+            height: 4px;
+            background: #989797;
+            transform: rotate(90deg);
+        }
+    }
+}
