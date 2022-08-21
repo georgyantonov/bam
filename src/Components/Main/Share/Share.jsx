@@ -2,10 +2,13 @@ import React from 'react'
 import './style.scss'
 import vk from '../../../Assets/vk.svg'
 import upload from '../../../Assets/upload.svg'
+import { useState } from 'react'
 
 export default function Share() {
-  function dateCheck(e){
+  const [filesArray, setFilesArray] = useState([]);
+  let [checked = 'disabled', setChecked] = useState();
 
+  function dateCheck(e){
     e.target.className = e.target.value !== '' ? 'with_icon input ' : 'with_icon input'
   };
 
@@ -30,28 +33,26 @@ export default function Share() {
     e.target.setAttribute('placeholder', String(days + " " + months[nums[1]-1] +' '  + years ))
   };
 
-function files(e){
-  console.log(e)
-  var inputFile = document.getElementById('drop').files;
-  console.log(inputFile)
-  const values = Object.entries(inputFile)
-  console.log(values)
-  let uploaded = document.querySelector('.uploaded')
-  let span = document.createElement('span')
+  function files(e) {
+    const values = Object.entries(e.target.files);
 
-  values.forEach(entry => {
+    values.forEach(entry => {
+      setFilesArray((prev) => {
+        console.log(prev);
+        return [...prev, entry]
+      })
+    })
+  }
 
-    const file = entry[1]
-    console.log(file)
-    let span1 = document.createElement('span')
-    let spanCreated = uploaded.appendChild(span1)
-    spanCreated.innerText = file.name.length > 10 ? file.name.slice(0, 10) : file.name 
-    spanCreated.classList.add("file")
-    console.log(spanCreated)
-    spanCreated.appendChild(span)
-  })
-}
-
+  function deleteFile(index) {
+    const newArray = [...filesArray];
+    newArray.splice(index, 1);
+    setFilesArray(newArray);
+  }
+  
+  function disable(e){
+    e.target.checked ? setChecked(String('')): setChecked(String('disabled'))
+  }
 
   return (
     <div className='share'>
@@ -123,7 +124,17 @@ function files(e){
             </div>
             <label htmlFor="dropzone">Добавьте фото</label>
             <div className="uploaded">
-
+            {filesArray.map((item, index) => {
+                return (
+                  <span
+                    key={item[1].name}
+                    className="file"
+                  >
+                    {item[1].name}
+                    <span onClick={() => deleteFile(index)} />
+                  </span>
+                )
+              })}
             </div>
             <div className='dropzone high'>
               <label htmlFor="drop">
@@ -140,8 +151,16 @@ function files(e){
                 </div>
                 <input type="file" className='high input' multiple name='files[]' id='drop' onChange={(e) => files(e)}></input>
               </label>
-                
             </div>
+            <div className="mail">
+              <p>Если вы хотите загрузить видео, пожалуйста, напишите нам на почту <a href='mailto:video@bam.ru'>video@bam.ru</a>, и мы ответим вам в ближайшее время
+              </p>
+            </div>
+            <div className="submit">
+              <input type="checkbox" id='tnc' name='tnc' onChange={(e) => disable(e)}/>
+              <label htmlFor='tnc'>Принимаю условия пользовательского соглашения</label>
+            </div>
+            <button disabled={checked}>Поделиться историей</button>
           </form>
         </div>
     </div>

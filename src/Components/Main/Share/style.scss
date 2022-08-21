@@ -78,203 +78,266 @@
                     background: url('../../../Assets/map.svg');
                 }
                 
-    }
-    }
-    .high{
-        box-sizing: border-box;
-        padding: 12px 15px;
-        min-height: 201px;
-        width: 100%;
-        resize: none;
-        margin-bottom: 32px;
-    }
-    .dropzone{
-        height: 201px;
-        border: 1px dashed rgba(255, 255, 255, 0.6);
-        border-radius: 5px;
-        padding: 0 0;
-        .files{
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            }
         }
-        input[type="file"]{
-            opacity: 0;
-            visibility: hidden;
-            width: 0.1px;
-            height: 0.1px;
-            min-height: 0.1px;
-            padding: 0 0;
-            margin-bottom: 0;
+        .high{
+            box-sizing: border-box;
+            padding: 12px 15px;
+            min-height: 201px;
+            width: 100%;
+            resize: none;
+            margin-bottom: 30px;
         }
-        label{
+        .dropzone{
             height: 201px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
+            border: 1px dashed rgba(255, 255, 255, 0.6);
+            border-radius: 5px;
+            padding: 0 0;
+            .files{
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6);
+            }
+            input[type="file"]{
+                opacity: 0;
+                visibility: hidden;
+                width: 0.1px;
+                height: 0.1px;
+                min-height: 0.1px;
+                padding: 0 0;
+                margin-bottom: 0;
+            }
+            label{
+                height: 201px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+                z-index: 100;
+            }
+            .input_button{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 25px;
+                gap: 10px;
+                width: 204px;
+                height: 44px;
+                border: 1px solid #FFFFFF;
+                border-radius: 4px;
+                .input__file-button-text{
+                    display: flex;
+                    width: 120px
+                }
+            }    
         }
-        .input_button{
+            .uploaded {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                span{
+                    box-sizing: border-box !important;
+                    display: flex;
+                    align-items: center;
+                    padding: 7.5px 16px;
+                    gap: 10px;
+                    margin-bottom: 10px;
+                    width: auto;
+                    height: 34px;
+                    background: #1E1E1E;
+                    border-radius: 5px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    span{
+                        padding: 0 0;
+                        margin-bottom: 0;
+                        height: 14px;
+                        width: 14px;
+
+                    }
+                    span:before, span:after{
+                        content: ""; 
+                        position: absolute; 
+                        width: 14px; 
+                        height: 2px; 
+                        background: white;
+                    }
+                    span:before{
+                        transform: rotate(45deg)
+                    }
+                    span:after{
+                        transform: rotate(-45deg)
+                    }
+            }}
+        .mail{
+            p{
+                a{
+                    text-decoration: underline !important;
+                }
+            }
+        }
+        .submit{
+            margin:62px auto 19px;
+            display: flex;
+            flex-direction: row;
+            gap: 14px;
+            input{
+                position: absolute;
+                z-index: -10;
+                opacity: 0;
+            }
+            label{
+                display: flex;
+                align-items: center;
+            }
+            input+label::before {
+                content: '';
+                display: inline-block;
+                margin:auto 14px auto 0;
+                height: 20px;
+                width: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                border-radius: 4px;
+                flex-shrink: 0;
+                flex-grow: 0;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 50% 50%;
+            }
+            input:checked+label::before {
+                border-color: #0b76ef;
+                background-color: #0b76ef;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+              }
+        }
+        button{
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            padding: 10px 25px;
+            padding: 15px 25px;
             gap: 10px;
-            width: 204px;
-            height: 44px;
-            border: 1px solid #FFFFFF;
+            width: 421px;
+            height: 54px;
+            left: 510px;
+            top: 3621px;
+            background: #E61723;
             border-radius: 4px;
-            .input__file-button-text{
-                display: flex;
-                width: 120px
-            }
-        }    
-    }
-        .uploaded {
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
-            span{
-                box-sizing: border-box !important;
-                display: flex;
-                align-items: center;
-                padding: 7.5px 16px;
-                gap: 10px;
-                margin-bottom: 10px;
-                width: auto;
-                height: 34px;
-                background: #1E1E1E;
-                border-radius: 5px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                span{
-                    padding: 0 0;
-                    margin-bottom: 0;
-                    height: 14px;
-                    width: 14px;
-
-                }
-                span:before, span:after{
-                    content: ""; 
-                    position: absolute; 
-                    width: 14px; 
-                    height: 2px; 
-                    background: white;
-                }
-                span:before{
-                    transform: rotate(45deg)
-                }
-                span:after{
-                    transform: rotate(-45deg)
-                }
-        }}
+            border: none;
+            margin: 0 auto;
+            color: white;
+            transition: all 1s;
+        }
+        button:disabled{
+            opacity: 0.5;
+            transition: opacity 0.5s;
+        }
     }
 
-    label{
-        font-size: 16px;
-        line-height: 19px;
-        margin-bottom: 10px;
+        label{
+            font-size: 16px;
+            line-height: 19px;
+            margin-bottom: 10px;
+        }
     }
-}
-::placeholder{
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
-}
-.input{
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 12px 15px;
-    gap: 10px;
-    width: 420px;
-    height: 45px;
-    background: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
-
-}
-.input[class*='with_icon']{
-    padding-left: 45px !important;
-}
-.from::-webkit-calendar-picker-indicator{
-    content: "";
-    height: 23px;
-    left: 15px;
-    position: absolute;
-    top: 44%;
-    transform: translateY(-50%);
-    width: 22px;
-    background: url(http://localhost:3000/static/media/map.05fcac1….svg);
-}
-.dates{
-    gap: 20px !important;
-    input{
+    ::placeholder{
         font-family: 'Raleway', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 15px;
-        line-height: 19px;
-        width: 200px;
-        color: #989797;
+        font-size: 16px;
+        line-height: 130%;
     }
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        position: absolute;
-        top: 20px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        color: transparent;
-        background: transparent
+    .input{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 12px 15px;
+        gap: 10px;
+        width: 420px;
+        height: 45px;
+        background: #FFFFFF;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 4px;
+
     }
-      
-    input[type="date"]::-webkit-inner-spin-button,
-    input[type="date"]::-webkit-clear-button {
-        z-index: -10
+    .input[class*='with_icon']{
+        padding-left: 45px !important;
     }
-      
-    input[type="date"]::-webkit-input-placeholder {
-        width: 100%;
-        height: 100%;
-        z-index: 99
-    }
-      
-    input[type="date"]:placeholder {
-        z-index: 99
-    }
-    input[type="date"]:not(.has-value):before{
-        content: attr(placeholder);
-        width: 100%;
-    }
-      
-    input[type="date"]{
-        padding: 12px 20px;
-    }
-    input::-webkit-datetime-edit-text{
-        opacity: 0;
-        width: 5px;
-    }
-    .date_from::after{
-        background: #fff;
+    .from::-webkit-calendar-picker-indicator{
         content: "";
-        height: 1px;
+        height: 23px;
+        left: 15px;
         position: absolute;
-        right: -15px;
-        top: 50%;
-        width: 10px;
+        top: 44%;
+        transform: translateY(-50%);
+        width: 22px;
+        background: url(http://localhost:3000/static/media/map.05fcac1….svg);
     }
-}
-.date_from::before, .date_to::before{
-    background: url('../../../Assets/calendar.svg') !important;
-}
-label[for='to']{
-    opacity: 0;
-}
+    .dates{
+        gap: 20px !important;
+        input{
+            font-family: 'Raleway', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 19px;
+            width: 200px;
+            color: #989797;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+            background: transparent
+        }
+        
+        input[type="date"]::-webkit-inner-spin-button,
+        input[type="date"]::-webkit-clear-button {
+            z-index: -10
+        }
+        
+        input[type="date"]::-webkit-input-placeholder {
+            width: 100%;
+            height: 100%;
+            z-index: 99
+        }
+        
+        input[type="date"]:placeholder {
+            z-index: 99
+        }
+        input[type="date"]:not(.has-value):before{
+            content: attr(placeholder);
+            width: 100%;
+        }
+        
+        input[type="date"]{
+            padding: 12px 20px;
+        }
+        input::-webkit-datetime-edit-text{
+            opacity: 0;
+            width: 5px;
+        }
+        .date_from::after{
+            background: #fff;
+            content: "";
+            height: 1px;
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            width: 10px;
+        }
+    }
+    .date_from::before, .date_to::before{
+        background: url('../../../Assets/calendar.svg') !important;
+    }
+    label[for='to']{
+        opacity: 0;
+    }
