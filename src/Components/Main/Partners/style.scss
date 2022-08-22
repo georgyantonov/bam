@@ -17,22 +17,32 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-        margin-top: 99px;
+        margin: 99px auto;
+        max-width: 1440px;
         .card{
             display: flex;
             flex-direction: column;
             height: 273px;
             width: 444px;
-            justify-content: space-between;
+            gap: 45px;
             align-items: center;
 
+            .part_logo{
+                height: 150px;
+                display: flex;
+                div{
+                    margin: auto;
+                }
+            }
+            .part_text{
+                display: flex;
+                text-align: center;
+                font-style: normal;
+                font-weight: 400;
+            }
         }
-        .card:not(:last-child)::after{
-            content: '';
-            width: 273px;
-            height: 4px;
-            background: #989797;
-            transform: rotate(90deg);
+        .card:not(:last-child){
+           border-right: 2px solid #989797;
         }
     }
 }

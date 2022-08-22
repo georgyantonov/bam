@@ -32,9 +32,15 @@ export default function Partners() {
                 return(
                     <div className="card">
                         <div className="part_logo">
+                            <div>
                             <img src={logo} alt={name} />
+                            </div>
                         </div>
-                        <p>{text}</p>
+                        <div className='part_text'>
+                            <div>
+                                <p>{text}</p>
+                            </div>
+                        </div>
                     </div>
                 )
             })}
