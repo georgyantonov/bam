@@ -1,0 +1,28 @@
+footer{
+    min-height: 196px;
+    background-color: #1F1F1F;
+    .footer_wrapper{
+        max-width: 1440px;
+        margin: 0 auto;
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        .logo{
+            min-height: 99px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .pcu{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 39px;
+            color: #F2F2F2;
+            opacity: 0.6;
+        }
+        .pcu div:not(:nth-child(2)){
+            text-decoration: underline;
+        }
+    }
+}
