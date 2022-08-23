@@ -20,6 +20,7 @@ body, html{
 }
 a{
   text-decoration: none;
+  color: white;
 }
 @font-face {
   font-family: 'Pilotka';
