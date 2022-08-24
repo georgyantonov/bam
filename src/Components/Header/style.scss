@@ -13,3 +13,28 @@
 
     }
 }
+@media (max-width: 1126px){
+    .header{
+        .header_items{
+                div{
+                    width: 200px;
+                    height: 30px;
+                }
+                div.burgerm{
+                    .burger{
+                        transform: scale(2);
+                        z-index: 10;
+                    }
+                    order: 0;
+                }
+                div.instr{
+                    order: 2;
+                }
+                div.logo{
+                    order: 1;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+}
