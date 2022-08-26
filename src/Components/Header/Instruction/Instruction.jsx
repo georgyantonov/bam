@@ -6,7 +6,7 @@ export default function Instruction() {
     <a href="">
     <div className='instruction'>
         <span>!</span> 
-        Инструкция к сайту
+        <p>Инструкция к сайту</p>
     </div>
   </a>
   )

@@ -41,13 +41,13 @@
             }
         }
         .card:first-child .part_text{
-            width: 15rem;
+            max-width: 15rem;
         }
         .card:nth-child(2) .part_text{
-            width: 12rem;
+            max-width: 12rem;
         }
         .card:last-child .part_text{
-            width: 22rem;
+            max-width: 22rem;
         }
         .card:not(:last-child){
            border-right: 2px solid #989797;
