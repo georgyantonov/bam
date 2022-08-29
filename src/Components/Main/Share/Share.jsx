@@ -5,11 +5,24 @@ import upload from '../../../Assets/upload.svg'
 import { useState } from 'react'
 import { useForm } from "react-hook-form";
 
-export default function Share() {
+export default function Share(props) {
   const [filesArray, setFilesArray] = useState([]);
   let [checked = 'disabled', setChecked] = useState();
+  let [data, setData] = useState();
   const{ register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => setData(data);
+  async function sendStory(){
+    console.log(JSON.stringify(data))
+    let res = await fetch('http://localhost:3000/stories',{
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+    let result = await res.json();
+  }
 
   function dateCheck(e){
     e.target.className = e.target.value !== '' ? 'with_icon input ' : 'with_icon input'
@@ -66,7 +79,7 @@ export default function Share() {
               <img src={vk} alt="ВКонтакте" />
               <div className='auth'>Войдите через VK ID</div>
             </button>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form id='form' onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="col">
                 <label htmlFor="email">
@@ -163,7 +176,7 @@ export default function Share() {
               <input type="checkbox" id='tnc' name='tnc' onChange={(e) => disable(e)}/>
               <label htmlFor='tnc'>Принимаю условия пользовательского соглашения</label>
             </div>
-            <button type='submit' disabled={checked}>Поделиться историей</button>
+            <button type='submit' onClick={() => sendStory()} disabled={checked}>Поделиться историей</button>
           </form>
         </div>
     </div>
