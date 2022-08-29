@@ -17,6 +17,7 @@ export default function MobileNav() {
       {open ? close : menu}
       <CSSTransition
         in={open}
+        timeout={200}
         onEnter= {() => setOpen(true)}
         onClick = {() => setOpen(false)} >
           <NavItems 

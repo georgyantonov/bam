@@ -3,10 +3,13 @@ import './style.scss'
 import vk from '../../../Assets/vk.svg'
 import upload from '../../../Assets/upload.svg'
 import { useState } from 'react'
+import { useForm } from "react-hook-form";
 
 export default function Share() {
   const [filesArray, setFilesArray] = useState([]);
   let [checked = 'disabled', setChecked] = useState();
+  const{ register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
 
   function dateCheck(e){
     e.target.className = e.target.value !== '' ? 'with_icon input ' : 'with_icon input'
@@ -63,19 +66,19 @@ export default function Share() {
               <img src={vk} alt="ВКонтакте" />
               <div className='auth'>Войдите через VK ID</div>
             </button>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="col">
                 <label htmlFor="email">
-                  Email*    
+                  Email    
                 </label>
-                <input type="text" className="input email" name='email' placeholder='Электронный адрес' required />
+                <input {...register('email')} type="text" className="input email" name='email' placeholder='Электронный адрес' required />
               </div>
               <div className="col">
                 <label htmlFor="name">
                   Имя*
                 </label>
-                <input type="text" className="input name" name='name' placeholder='Ваше имя' required />
+                <input {...register('name')} type="text" className="input name" name='name' placeholder='Ваше имя' required />
               </div>
             </div>
             <div className="row">
@@ -83,13 +86,13 @@ export default function Share() {
                 <label htmlFor="hero">
                   О ком ваша история*
                 </label>
-                <input type="text" className='input hero' name='hero' placeholder='Имя героя' required />
+                <input {...register('hero')} type="text" className='input hero' name='hero' placeholder='Имя героя' required />
               </div>
             </div>
             <label htmlFor="story">
               Ваша история*
             </label>
-            <textarea name="story"  className='input high' placeholder='Расскажите о себе или о своих родственниках, которые принимали участие в строительстве магистрали'></textarea>
+            <textarea {...register('story')} name="story"  className='input high' placeholder='Расскажите о себе или о своих родственниках, которые принимали участие в строительстве магистрали'></textarea>
             <div className="row">
               <div className="col">
               <label htmlFor="place">
@@ -97,7 +100,7 @@ export default function Share() {
                   </label>
                 <span className="icon">
                   
-                  <input type="text" name='place' className="with_icon input place " placeholder='Место работы' />
+                  <input {...register('place')} type="text" name='place' className="with_icon input place " placeholder='Место работы' />
                 </span>
               </div>
               <div className="col">
@@ -107,7 +110,7 @@ export default function Share() {
                     Годы работы
                   </label>
                   <span className="icon date_from" >
-                    <input type="date" className="with_icon from input" name='from' min='1972-04-05' max='1984-10-27' placeholder='05 апреля 1972' onChange={(e) => numToMonth(e)} onChangeCapture={(e) => dateCheck(e)} />
+                    <input {...register('from')} type="date" className="with_icon from input" name='from' min='1972-04-05' max='1984-10-27' placeholder='05 апреля 1972' onChange={(e) => numToMonth(e)} onChangeCapture={(e) => dateCheck(e)} />
                   </span>
                 </div>
                 <div className="col">
@@ -115,7 +118,7 @@ export default function Share() {
                   0
                   </label>
                   <span className="icon date_to">
-                    <input type="date" className="with_icon to input" name='to' min='1972-04-05' max='1984-10-27' placeholder="27 октября 1984" onChange={(e) => numToMonth(e)} onChangeCapture={(e) => dateCheck(e)} />
+                    <input {...register('to')} type="date" className="with_icon to input" name='to' min='1972-04-05' max='1984-10-27' placeholder="27 октября 1984" onChange={(e) => numToMonth(e)} onChangeCapture={(e) => dateCheck(e)} />
                   </span>
                 </div>
               </div>
@@ -149,7 +152,7 @@ export default function Share() {
                   </div>
                   <div className="input__file-button-text">Выберите файл</div>
                 </div>
-                <input type="file" className='high input' multiple name='files[]' id='drop' onChange={(e) => files(e)}></input>
+                <input {...register('files')} type="file" className='high input' multiple name='files[]' id='drop' onChange={(e) => files(e)}></input>
               </label>
             </div>
             <div className="mail">
@@ -160,7 +163,7 @@ export default function Share() {
               <input type="checkbox" id='tnc' name='tnc' onChange={(e) => disable(e)}/>
               <label htmlFor='tnc'>Принимаю условия пользовательского соглашения</label>
             </div>
-            <button disabled={checked}>Поделиться историей</button>
+            <button type='submit' disabled={checked}>Поделиться историей</button>
           </form>
         </div>
     </div>
