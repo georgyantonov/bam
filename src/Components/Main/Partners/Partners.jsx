@@ -28,9 +28,9 @@ export default function Partners() {
             <span>Партнеры</span>
         </div>
         <div className="partners_cards">
-            { partnersArray.map(({logo, text, name}, index) => {
+            { partnersArray.map(({logo, text, name},item, index) => {
                 return(
-                    <div className="card">
+                    <div className="card" key={text}>
                         <div className="part_logo">
                             <div>
                             <img src={logo} alt={name} />
