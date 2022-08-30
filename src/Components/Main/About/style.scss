@@ -11,7 +11,7 @@
         font-family: 'Pilotka';
         font-style: normal;
         font-weight: 400;
-        font-size: 96px;
+        font-size: calc(40px + 56 * (100vw / 4920));
         line-height: 90%;
         text-transform: uppercase;
         color: #0495CE;
@@ -140,7 +140,7 @@
             .employees{
                 max-width: 100%;
                 order: 0;
-                min-height: 930px;
+                min-height: 750px;
                 div{
                     img{
                         opacity: 1;
@@ -159,7 +159,27 @@
 }
 }
 @media (max-width: 900px){
-    .about_bam [class*=header] {
-        font-size: 40px;
+    .about_bam{
+        
+        padding: 133px 5px;
+        [class*=header]{
+            margin-bottom: 32px;
+        }
+        [class*=header] span{
+            padding-left: 50px;
+            
+        }
+        .description{
+            padding-left: 0;
+        }
+    }
+}
+@media (max-width: 425px){
+    .about_bam{
+        background-image: url('../../../Assets/bgmb.svg');
+        background-position: center -220px;
+        [class*=header] {
+            padding: 0px;
+        }
     }
 }

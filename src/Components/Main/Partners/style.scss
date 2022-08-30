@@ -7,10 +7,10 @@
         text-align: center;
         color: black;
         font-family: 'Pilotka';
-        font-size: 48px;
+        font-size: calc(32px + 16 * (100vw / 1920))
     }
     .partners_cards{
-        height: 273px;
+        min-height: 273px;
         color: black;
         display: flex;
         flex-direction: row;
@@ -43,9 +43,7 @@
         .card:first-child .part_text{
             max-width: 15rem;
         }
-        .card:nth-child(2) .part_text{
-            max-width: 12rem;
-        }
+        
         .card:last-child .part_text{
             max-width: 22rem;
         }
@@ -53,5 +51,25 @@
            border-right: 2px solid #989797;
         }
         
+    }
+}
+@media (max-width: 425px){
+    .partners{
+        .partners_cards{
+            flex-direction: column;
+            margin: 84px auto;
+            .card{
+                width: 273px;
+                max-width:inherit;
+                .part_text{
+                    max-width: 273px;
+                }
+            }
+            .card:not(:last-child){
+                max-width: 273px;
+                border-right: none;
+                border-bottom: 2px solid #989797;
+            }
+        }
     }
 }

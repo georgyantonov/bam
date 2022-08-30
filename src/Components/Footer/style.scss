@@ -33,3 +33,19 @@ footer{
         }
     }
 }
+@media (max-width: 425px){
+    footer{
+        .footer_wrapper{
+            .pcu{
+                flex-direction: column;
+                gap: 15px;
+                justify-content: center;
+                align-items: center;
+                .copyright{
+                    order: 3;
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+}

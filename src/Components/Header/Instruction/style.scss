@@ -14,13 +14,18 @@
     }
 }
 @media (max-width: 900px){
-    .instruction{
+    .instr{
         justify-content: flex-end;
-        span{
-            float: right;
-        }
-        p{
-            display: none;
-        }
+        width: 30px !important;
+        .instruction{
+            width: 30px !important;
+            span{
+                float: right;
+                margin-right: 0;
+            }
+            p{
+                display: none;
+            }
+        }   
     }
 }

@@ -16,13 +16,13 @@
     .years{
         position: relative;
         top: 170px;
-        font-size: 87px;
+        font-size: calc(70px + 17 * (100vw / 1920));
         line-height: 110px;
     }
     .abbreviation{
         position: relative;
         top: 130px;
-        font-size: 250px;
+        font-size: calc(130px + 120 * (100vw / 1920));
         line-height: 315px;
     }
     .play{
@@ -45,5 +45,22 @@
         position: absolute;
         left: 60px;
         bottom: calc(var(--load-height) + 22px);
+    }
+}
+@media (max-width: 425px){
+    .content{
+        .years{
+            top: 145px;
+        }
+        .abbreviation{
+            top: 100px;
+            font-size: calc(130px + (120 + 20 * 0.7) * ((100vw - 375px)/1980));
+        }
+        .mouse{
+            display: none;
+        }
+        .play{
+            margin-top: 100px;
+        }
     }
 }
