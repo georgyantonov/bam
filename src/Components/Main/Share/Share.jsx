@@ -11,6 +11,7 @@ export default function Share(props) {
   let [data, setData] = useState();
   const{ register, handleSubmit } = useForm();
   const onSubmit = data => setData(data);
+
   async function sendStory(){
     console.log(JSON.stringify(data))
     let res = await fetch('http://localhost:3000/stories',{
@@ -79,7 +80,7 @@ export default function Share(props) {
               <img src={vk} alt="ВКонтакте" />
               <div className='auth'>Войдите через VK ID</div>
             </button>
-          <form id='form' onSubmit={handleSubmit(onSubmit)}>
+          <form  id='form' onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
               <div className="col">
                 <label htmlFor="email">
