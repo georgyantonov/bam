@@ -12,8 +12,23 @@ export default function Share(props) {
   const{ register, handleSubmit } = useForm();
   const onSubmit = data => setData(data);
 
-  async function sendStory(){
-    console.log(JSON.stringify(data))
+  async function sendStory(e){
+    console.log(e)
+    
+    let names = [];
+    if(e.target.form[7].files.length === 1){
+      data.file = e.target.form[7].files[0].name
+    }
+    else{
+      
+    for(let i=0; i < e.target.form[7].files.length; i++){
+      console.log(i)
+      let fileName = e.target.form[7].files[i].name;
+      names.push(fileName)
+      }
+      data[`files`] = names
+      console.log(names)
+    }
     let res = await fetch('http://localhost:3000/stories',{
       method: "POST",
       headers: {
@@ -52,11 +67,11 @@ export default function Share(props) {
 
   function files(e) {
     const values = Object.entries(e.target.files);
-
+    console.log(values)
     values.forEach(entry => {
       setFilesArray((prev) => {
         console.log(prev);
-        return [...prev, entry]
+        return [ entry, ...prev]
       })
     })
   }
@@ -177,7 +192,7 @@ export default function Share(props) {
               <input type="checkbox" id='tnc' name='tnc' onChange={(e) => disable(e)}/>
               <label htmlFor='tnc'>Принимаю условия пользовательского соглашения</label>
             </div>
-            <button type='submit' onClick={() => sendStory()} disabled={checked}>Поделиться историей</button>
+            <button type='submit' onClick={(e) => sendStory(e)} disabled={checked}>Поделиться историей</button>
           </form>
         </div>
     </div>
