@@ -6,11 +6,15 @@ import { useState } from 'react'
 import { useForm } from "react-hook-form";
 
 export default function Share(props) {
+
   const [filesArray, setFilesArray] = useState([]);
   let [checked = 'disabled', setChecked] = useState();
   let [data, setData] = useState();
   const{ register, handleSubmit } = useForm();
-  const onSubmit = data => setData(data);
+  const onSubmit = (data) =>{
+    setData(data);
+    console.log(data)
+  };
   async function files(e) {
     console.log(data)
     const values = Object.entries(e.target.files);
@@ -25,6 +29,7 @@ export default function Share(props) {
   }
   
   async function sendStory(e){
+    e.preventDefault()
     console.log(data)
     console.log(e)
     let names = [];
@@ -51,7 +56,9 @@ export default function Share(props) {
       body: JSON.stringify(data)
     });
     let result = await res.json();
-    
+    e.target.form.reset();
+    setChecked('disabled')
+    setFilesArray([])
   }
 
   function dateCheck(e){
@@ -101,7 +108,7 @@ export default function Share(props) {
               <img src={vk} alt="ВКонтакте" />
               <div className='auth'>Войдите через VK ID</div>
             </button>
-          <form  id='form' onSubmit={handleSubmit(onSubmit)}>
+          <form  id='form' >
             <div className="row">
               <div className="col">
                 <label htmlFor="email">
@@ -198,7 +205,7 @@ export default function Share(props) {
               <input type="checkbox" id='tnc' name='tnc' onChange={(e) => disable(e)}/>
               <label htmlFor='tnc'>Принимаю условия пользовательского соглашения</label>
             </div>
-            <button type='submit' onClick={(e) => sendStory(e) } disabled={checked}>Поделиться историей</button>
+            <button type='submit' onClickCapture={handleSubmit(onSubmit)} onClick={(e) => sendStory(e) } disabled={checked}>Поделиться историей</button>
           </form>
         </div>
     </div>
