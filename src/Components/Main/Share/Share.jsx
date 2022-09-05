@@ -11,24 +11,37 @@ export default function Share(props) {
   let [data, setData] = useState();
   const{ register, handleSubmit } = useForm();
   const onSubmit = data => setData(data);
-
+  async function files(e) {
+    console.log(data)
+    const values = Object.entries(e.target.files);
+    console.log(values)
+    values.forEach(entry => {
+      setFilesArray((prev) => {
+        console.log(prev);
+        return [ entry, ...prev]
+      })
+    })
+    let wait = await setFilesArray
+  }
+  
   async function sendStory(e){
+    console.log(data)
     console.log(e)
-    
     let names = [];
-    if(e.target.form[7].files.length === 1){
-      data.file = e.target.form[7].files[0].name
+    if(e.target.form[7].files.length === 1) {
+      data[`files`] = e.target.form[7].files[0].name
     }
     else{
-      
-    for(let i=0; i < e.target.form[7].files.length; i++){
-      console.log(i)
-      let fileName = e.target.form[7].files[i].name;
-      names.push(fileName)
-      }
-      data[`files`] = names
-      console.log(names)
+      for(let i=0; i < e.target.form[7].files.length; i++){
+        console.log(i)
+        console.log(e.target.form[7].files.length)
+        let fileName = e.target.form[7].files[i].name;
+        names.push(fileName)
+        }
+        e.target.form[7].files.length!==0 ? data[`files`] = names :
+        console.log(names)
     }
+
     let res = await fetch('http://localhost:3000/stories',{
       method: "POST",
       headers: {
@@ -38,6 +51,7 @@ export default function Share(props) {
       body: JSON.stringify(data)
     });
     let result = await res.json();
+    
   }
 
   function dateCheck(e){
@@ -65,16 +79,7 @@ export default function Share(props) {
     e.target.setAttribute('placeholder', String(days + " " + months[nums[1]-1] +' '  + years ))
   };
 
-  function files(e) {
-    const values = Object.entries(e.target.files);
-    console.log(values)
-    values.forEach(entry => {
-      setFilesArray((prev) => {
-        console.log(prev);
-        return [ entry, ...prev]
-      })
-    })
-  }
+
 
   function deleteFile(index) {
     const newArray = [...filesArray];
@@ -84,6 +89,7 @@ export default function Share(props) {
   
   function disable(e){
     e.target.checked ? setChecked(String('')): setChecked(String('disabled'))
+    
   }
 
   return (
@@ -192,7 +198,7 @@ export default function Share(props) {
               <input type="checkbox" id='tnc' name='tnc' onChange={(e) => disable(e)}/>
               <label htmlFor='tnc'>Принимаю условия пользовательского соглашения</label>
             </div>
-            <button type='submit' onClick={(e) => sendStory(e)} disabled={checked}>Поделиться историей</button>
+            <button type='submit' onClick={(e) => sendStory(e) } disabled={checked}>Поделиться историей</button>
           </form>
         </div>
     </div>
